@@ -1,10 +1,11 @@
 import HeaderBox from "@/components/HeaderBox";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut } from "react-chartjs-2";
 import React from "react";
+import RightSidebar from "@/components/RightSidebar";
 
 const Home = () => {
-  const loggedIn = { firstName: "Adi" };
+  const loggedIn = { firstName: "Adi", lastName: "Kar", email:"adi.kar@adiportfolio.com" };
   return (
     <section className="home">
       <div className="home-content">
@@ -16,13 +17,18 @@ const Home = () => {
             subtext="Access and manage your account and transactions efficiently."
           />
           <TotalBalanceBox
-          accounts={[]}
-          totalBanks={1}
-          totalCurrentBalance={1250.35}
+            accounts={[]}
+            totalBanks={1}
+            totalCurrentBalance={1250.35}
           />
         </header>
+        RECENT TRANSACTIONS
       </div>
-      Home
+      <RightSidebar
+      user={loggedIn}
+      transactions={[]}
+      banks={[{currentBalance: 123.50},{currentBalance: 500}]}
+      />
     </section>
   );
 };
