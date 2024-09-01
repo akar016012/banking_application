@@ -25,17 +25,17 @@ export async function createAdminClient() {
   const client = new Client()
     .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
     .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!)
-    .setKey(process.env.NEXT_APPWRITE_KEY!);
+    .setKey(process.env.APPWRITE_SECRET!);
 
   return {
     get account() {
       return new Account(client);
     },
-    get database(){
-        return new Databases(client)
+    get database() {
+      return new Databases(client);
     },
-    get user(){
-        return new Users(client)
-    }
+    get user() {
+      return new Users(client);
+    },
   };
 }
